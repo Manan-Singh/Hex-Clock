@@ -34,9 +34,9 @@
 				}
 				//setInterval(function(){ writeDate(); }, 1000);
 				
-				function getTotalSecondsOfMonth(){
+				function getTotalSecondsOfDay(){
 					var date = new Date();
-					return (date.getMonth() * 2678400 + 1) + (date.getHours() * 3600) + (date.getMinutes() * 60) + (date.getSeconds());
+					return (date.getHours() * 3600) + (date.getMinutes() * 60) + (date.getSeconds());
 				}
 				
 				function getHexDigit(x){
@@ -69,9 +69,9 @@
 				}
 				
 				setInterval(function() { 
-				var hexTime = convertToHex(getTotalSecondsOfMonth());
-				var hexColor = "#" + hexTime;
-				document.getElementById("hex").innerHTML = hexTime; 
+				var hexTime = convertToHex(getTotalSecondsOfDay());
+				var hexColor = "#00" + hexTime;
+				document.getElementById("hex").innerHTML = "00" + hexTime; 
 				document.getElementById("back").style.background = hexColor; }, 1000);
 				
 			</script>
