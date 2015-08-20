@@ -32,7 +32,6 @@
 					document.getElementById("minute").innerHTML = date.getMinutes();
 					document.getElementById("second").innerHTML = date.getSeconds();
 				}
-				//setInterval(function(){ writeDate(); }, 1000);
 				
 				function getTotalSecondsOfDay(){
 					var date = new Date();
@@ -70,8 +69,15 @@
 				
 				setInterval(function() { 
 				var hexTime = convertToHex(getTotalSecondsOfDay());
-				var hexColor = "#00" + hexTime;
-				document.getElementById("hex").innerHTML = "00" + hexTime; 
+				var zeroes;
+				if(hexTime.toString().length == 4){
+					zeroes = "00";
+				}
+				if(hexTime.toString().length == 5){
+					zeroes = "0"
+				}
+				var hexColor = "#" + zeroes + hexTime;
+				document.getElementById("hex").innerHTML = zeroes + hexTime; 
 				document.getElementById("back").style.background = hexColor; }, 1000);
 				
 			</script>
